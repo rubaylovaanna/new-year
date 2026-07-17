@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Что звучит? Угадай звук</title>
     <link rel="icon" href="../../../img/favicon/favbg.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/aud-atten-new-year.css">
+    
+    <!-- CSS с правильным путем -->
+    <link rel="stylesheet" href="./css/aud-atten-new-year.css">
+    
+    <!-- Временные стили для проверки -->
+    <style>
+        /* Если основной CSS не загрузится, хотя бы будет фон */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ЭКРАН 1: Стартовый экран с фоновой картинкой на весь экран -->
+    <!-- ЭКРАН 1: Стартовый экран -->
     <section id="start-screen" class="start-screen-new">
         <div class="main-card">
             <div class="fox-container">
-                <img src="img/header/fox-new-year.png" alt="Новогодняя лиса" class="mascot-new">
+                <img src="./img/header/fox-new-year.png" alt="Новогодняя лиса" class="mascot-new">
             </div>
             
             <div class="speech-bubble-new">
@@ -29,15 +41,13 @@
         </div>
     </section>
 
-    <!-- ЭКРАН 2: Игровой процесс (НОВЫЙ ДИЗАЙН) -->
+    <!-- ЭКРАН 2: Игровой процесс -->
     <section id="game-screen" class="game-screen-new hidden">
-        <!-- Фоновая картинка -->
         <div class="game-background"></div>
         
-        <!-- Верхняя панель с профилем -->
         <header class="game-header">
             <div class="user-profile">
-                <img src="img/header/fox-new-year.png" alt="Аватар" class="user-avatar">
+                <img src="./img/header/fox-new-year.png" alt="Аватар" class="user-avatar">
                 <div class="user-info">
                     <span class="user-name">Малыш</span>
                     <div class="user-stars">
@@ -53,62 +63,54 @@
             </button>
         </header>
 
-        <!-- Заголовок -->
         <div class="game-title-section">
             <h2 class="main-title">Слушай звуки</h2>
             <p class="subtitle">Нажми «Послушать звук» и выбери, что это!</p>
         </div>
 
-        <!-- Лиса в круге с нотами -->
         <div class="fox-circle-container">
-            <div class="music-note note-1"></div>
+            <div class="music-note note-1">🎵</div>
             <div class="music-note note-2">🎶</div>
-            <div class="music-note note-3">🎵</div>
             <div class="fox-circle">
-                <img src="img/header/fox-new-year.png" alt="Лиса" class="fox-circle-img">
+                <img src="./img/header/fox-new-year.png" alt="Лиса" class="fox-circle-img">
             </div>
         </div>
 
-        <!-- Кнопка послушать звук -->
         <button id="btn-listen" class="btn-listen-new">
-            <span class="speaker-icon">🔊</span>
+            <span class="speaker-icon"></span>
             Послушать звук
         </button>
 
-        <!-- Карточки с вариантами -->
         <div class="options-container">
             <div class="option-card" data-sound="bells">
-                <img src="img/form/bells.png" alt="Колокольчики" class="option-img">
+                <img src="./img/form/bells.png" alt="Колокольчики" class="option-img">
                 <span class="option-label">Колокольчики</span>
             </div>
             <div class="option-card" data-sound="chimes">
-                <img src="img/form/chimes.png" alt="Куранты" class="option-img">
+                <img src="./img/form/chimes.png" alt="Куранты" class="option-img">
                 <span class="option-label">Куранты</span>
             </div>
             <div class="option-card" data-sound="fire">
-                <img src="img/form/fire.png" alt="Бенгальский огонь" class="option-img">
+                <img src="./img/form/fire.png" alt="Бенгальский огонь" class="option-img">
                 <span class="option-label">Бенгальский огонь</span>
             </div>
             <div class="option-card" data-sound="whistle">
-                <img src="img/form/whistle.png" alt="Свистулька" class="option-img">
+                <img src="./img/form/whistle.png" alt="Свистулька" class="option-img">
                 <span class="option-label">Свистулька</span>
             </div>
         </div>
 
-        <!-- Кнопка проверить ответ -->
         <button id="btn-check" class="btn-check-new" disabled>
             <span class="check-icon">✓</span>
             Проверить ответ
         </button>
 
-        <!-- Снеговик -->
         <div class="snowman-decoration">
-            <img src="img/header/fox-new-year.png" alt="Снеговик" class="snowman-img" style="display:none;">
             <div class="snowman-placeholder">⛄</div>
         </div>
     </section>
 
-    <!-- МОДАЛЬНОЕ ОКНО (Результат) -->
+    <!-- МОДАЛЬНОЕ ОКНО -->
     <div id="popup-overlay" class="popup-overlay hidden">
         <div class="popup-content" id="popup-content">
             <img id="popup-img" src="" alt="Результат" class="popup-img">
@@ -118,12 +120,12 @@
         </div>
     </div>
 
-    <!-- Аудио элементы -->
-    <audio src="audio/bells.mp4" id="audio-bells" preload="auto"></audio>
-    <audio src="audio/chimes.mp4" id="audio-chimes" preload="auto"></audio>
-    <audio src="audio/fire.mp4" id="audio-fire" preload="auto"></audio>
-    <audio src="audio/whistle.mp4" id="audio-whistle" preload="auto"></audio>
+    <!-- Аудио -->
+    <audio src="./audio/bells.mp4" id="audio-bells" preload="auto"></audio>
+    <audio src="./audio/chimes.mp4" id="audio-chimes" preload="auto"></audio>
+    <audio src="./audio/fire.mp4" id="audio-fire" preload="auto"></audio>
+    <audio src="./audio/whistle.mp4" id="audio-whistle" preload="auto"></audio>
 
-    <script src="js/aud-atten-new-year.js"></script>
+    <script src="./js/aud-atten-new-year.js"></script>
 </body>
 </html>
